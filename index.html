@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="images/logoPanca.png">
+<title>Panca Agency — Digital Marketing & Creative Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css">
+<script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo" onclick="showPage('home')">
+    <img src="images/logoPanca-removebg.png" alt="Panca Agency">
+  </a>
+  <div class="nav-links">
+    <a href="#" onclick="scrollToSection('portfolio')">Portfolio</a>
+    <a href="#" onclick="scrollToSection('services')">Layanan</a>
+    <a href="#" onclick="scrollToSection('process')">Proses</a>
+    <a href="#" onclick="showPage('contact')">Kontak</a>
+    <a href="#" class="nav-cta" onclick="showPage('contact')">Konsultasi Gratis</a>
+  </div>
+</nav>
+
+<!-- ===================== HOME PAGE ===================== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-noise"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-tag">✦ Digital Marketing & Creative Agency</div>
+      <h1 class="hero-title">
+        GROW<br>
+        <span class="line2">YOUR</span><br>
+        <span class="outline">BRAND.</span>
+      </h1>
+      <p class="hero-desc">
+        Kami membantu bisnis kamu tumbuh secara digital — dari manajemen media sosial, branding, setup iklan, hingga campaign yang menghasilkan nyata.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('contact')">Mulai Sekarang</button>
+        <button class="btn-secondary" onclick="scrollToSection('portfolio')">Lihat Portfolio</button>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num" data-target="75">0</div>
+          <div class="stat-label">Klien Aktif</div>
+        </div>
+        <div>
+          <div class="stat-num" data-target="160">0</div>
+          <div class="stat-label">Project Selesai</div>
+        </div>
+        <div>
+          <div class="stat-num" data-target="98">0</div>
+          <div class="stat-label">% Kepuasan Klien</div>
+        </div>
+        <div>
+          <div class="stat-num" data-target="2">0</div>
+          <div class="stat-label">Tahun Pengalaman</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner" id="ticker-inner">
+      <span>Social Media Management</span><span class="ticker-dot">✦</span>
+      <span>Brand Identity</span><span class="ticker-dot">✦</span>
+      <span>Olshop Management</span><span class="ticker-dot">✦</span>
+      <span>Ads Setup</span><span class="ticker-dot">✦</span>
+      <span>Campaign Running</span><span class="ticker-dot">✦</span>
+      <span>Content Creation</span><span class="ticker-dot">✦</span>
+      <span>Digital Strategy</span><span class="ticker-dot">✦</span>
+      <span>Social Media Management</span><span class="ticker-dot">✦</span>
+      <span>Brand Identity</span><span class="ticker-dot">✦</span>
+      <span>Olshop Management</span><span class="ticker-dot">✦</span>
+      <span>Ads Setup</span><span class="ticker-dot">✦</span>
+      <span>Campaign Running</span><span class="ticker-dot">✦</span>
+      <span>Content Creation</span><span class="ticker-dot">✦</span>
+      <span>Digital Strategy</span><span class="ticker-dot">✦</span>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="portfolio-header reveal">
+      <div>
+        <span class="section-tag">// our work</span>
+        <h2 class="section-title">PORTFOLIO</h2>
+        <p class="section-sub">Hasil nyata dari brand-brand yang sudah mempercayakan digital presence mereka ke Panca Agency.</p>
+      </div>
+      <div class="portfolio-filters">
+        <button class="filter-btn active" onclick="filterPortfolio(this,'all')">Semua</button>
+        <button class="filter-btn" onclick="filterPortfolio(this,'sosmed')">Social Media</button>
+        <button class="filter-btn" onclick="filterPortfolio(this,'brand')">Branding</button>
+        <button class="filter-btn" onclick="filterPortfolio(this,'ads')">Ads</button>
+        <button class="filter-btn" onclick="filterPortfolio(this,'campaign')">Campaign</button>
+      </div>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-cat="brand,sosmed">
+        <div class="portfolio-bg bg-1"></div>
+        <div class="portfolio-placeholder"><span class="placeholder-icon">🛍️</span></div>
+        <div class="portfolio-overlay">
+          <div class="port-tag-small">Branding & Social Media</div>
+          <div class="port-title">Kopi Nusantara</div>
+          <div class="port-desc">Rebranding total + management IG & TikTok — followers naik 420% dalam 3 bulan</div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="ads">
+        <div class="portfolio-bg bg-2"></div>
+        <div class="portfolio-placeholder"><span class="placeholder-icon">📱</span></div>
+        <div class="portfolio-overlay">
+          <div class="port-tag-small">Meta Ads</div>
+          <div class="port-title">Skincare Glow.id</div>
+          <div class="port-desc">ROAS 8.2x dengan budget Rp 5jt/bulan</div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="sosmed">
+        <div class="portfolio-bg bg-3"></div>
+        <div class="portfolio-placeholder"><span class="placeholder-icon">✨</span></div>
+        <div class="portfolio-overlay">
+          <div class="port-tag-small">Social Media</div>
+          <div class="port-title">FashionFwd Store</div>
+          <div class="port-desc">Engagement rate naik dari 0.8% ke 6.4%</div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="campaign,ads">
+        <div class="portfolio-bg bg-4"></div>
+        <div class="portfolio-placeholder"><span class="placeholder-icon">🚀</span></div>
+        <div class="portfolio-overlay">
+          <div class="port-tag-small">Campaign & Ads</div>
+          <div class="port-title">TechGear Indonesia</div>
+          <div class="port-desc">Harbolnas campaign — revenue Rp 280jt dalam 3 hari</div>
+        </div>
+      </div>
+      <div class="portfolio-item" data-cat="brand">
+        <div class="portfolio-bg bg-5"></div>
+        <div class="portfolio-placeholder"><span class="placeholder-icon">🎨</span></div>
+        <div class="portfolio-overlay">
+          <div class="port-tag-small">Brand Identity</div>
+          <div class="port-title">Dapur Mama</div>
+          <div class="port-desc">Dari UMKM biasa jadi brand kuliner premium siap franchise</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- URGENCY -->
+  <section id="urgency">
+    <div class="urgency-bg-text">WHY US</div>
+    <div class="urgency-header reveal">
+      <span class="section-tag">// kenapa panca?</span>
+      <h2 class="section-title">BISNIS KAMU<br>BUTUH INI<br><span style="color:var(--orange)">SEKARANG.</span></h2>
+      <p class="section-sub">Kompetitor kamu sudah digital. Setiap hari tanpa strategi yang tepat = peluang yang hilang.</p>
+    </div>
+    <div class="urgency-grid reveal">
+      <div class="urgency-card">
+        <span class="urgency-num">01</span>
+        <span class="urgency-icon">⚡</span>
+        <div class="urgency-title">Market Digital Tumbuh 40% Per Tahun</div>
+        <p class="urgency-text">Pengguna internet Indonesia sudah 215 juta. Kalau bisnis kamu belum hadir optimal secara digital, kamu kehilangan potensi pasar yang luar biasa besar — dan kompetitor kamu sudah memakannya.</p>
+      </div>
+      <div class="urgency-card">
+        <span class="urgency-num">02</span>
+        <span class="urgency-icon">🎯</span>
+        <div class="urgency-title">Iklan Tanpa Strategi = Uang Terbuang</div>
+        <p class="urgency-text">Banyak bisnis sudah buang Rp 10–50 juta untuk ads tapi hasilnya nol. Kenapa? Karena tanpa setup yang benar, targeting yang tepat, dan copy yang convert — budget kamu hanya menguntungkan platform, bukan bisnismu.</p>
+      </div>
+      <div class="urgency-card">
+        <span class="urgency-num">03</span>
+        <span class="urgency-icon">📈</span>
+        <div class="urgency-title">Brand Yang Kuat = Harga Premium</div>
+        <p class="urgency-text">Brand yang terkelola dengan baik bisa mematok harga 2–5x lebih tinggi dari kompetitor. Bukan soal produknya saja — tapi bagaimana kamu dipersepsikan di market. Visual, tone, dan konsistensi menentukan trust konsumen.</p>
+      </div>
+      <div class="urgency-card">
+        <span class="urgency-num">04</span>
+        <span class="urgency-icon">🏆</span>
+        <div class="urgency-title">ROI Terukur & Transparan</div>
+        <p class="urgency-text">Kami tidak cuma posting dan berharap. Setiap action punya KPI yang jelas: reach, engagement, conversion, ROAS. Kamu bisa tracking progress kapan saja dan tahu persis uang kamu bekerja ke mana.</p>
+      </div>
+    </div>
+    <div class="urgency-cta-block reveal">
+      <div>
+        <div class="urgency-cta-title">TUNGGU LEBIH LAMA = RUGI LEBIH BANYAK</div>
+        <div class="urgency-cta-sub">Konsultasi pertama gratis. Tidak ada commitment. Mulai sekarang.</div>
+      </div>
+      <button class="btn-dark" onclick="showPage('contact')">Hubungi Kami →</button>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="reveal">
+      <span class="section-tag">// layanan kami</span>
+      <h2 class="section-title">APA YANG<br>KAMI LAKUKAN</h2>
+      <p class="section-sub">Empat pilar layanan yang dirancang untuk mendorong pertumbuhan digital bisnis kamu dari semua sisi.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card" onclick="showServiceDetail('sosmed')">
+        <div class="service-num">01 / 04</div>
+        <div class="service-icon-wrap">📱</div>
+        <div class="service-name">Social Media<br>Management</div>
+        <p class="service-desc">Kelola semua platform sosial mediamu secara profesional. Dari konten harian, copywriting, desain grafis, hingga community management — kami handle semuanya.</p>
+        <div class="service-tags">
+          <span class="service-tag">Instagram</span>
+          <span class="service-tag">TikTok</span>
+          <span class="service-tag">Facebook</span>
+          <span class="service-tag">Content Planning</span>
+        </div>
+        <button class="service-btn">Selengkapnya ↗</button>
+      </div>
+      <div class="service-card" onclick="showServiceDetail('brand')">
+        <div class="service-num">02 / 04</div>
+        <div class="service-icon-wrap">🛍️</div>
+        <div class="service-name">Brand & Olshop<br>Management</div>
+        <p class="service-desc">Bangun identitas brand yang kuat dan kelola toko online kamu agar tampil menarik, dipercaya, dan siap bersaing di marketplace manapun.</p>
+        <div class="service-tags">
+          <span class="service-tag">Branding</span>
+          <span class="service-tag">Shopee</span>
+          <span class="service-tag">Tokopedia</span>
+          <span class="service-tag">Website</span>
+        </div>
+        <button class="service-btn">Selengkapnya ↗</button>
+      </div>
+      <div class="service-card" onclick="showServiceDetail('ads')">
+        <div class="service-num">03 / 04</div>
+        <div class="service-icon-wrap">🎯</div>
+        <div class="service-name">Ads Setup</div>
+        <p class="service-desc">Setup iklan yang tepat sasaran di Meta, Google, dan TikTok Ads. Kami riset audience, buat creative, setting pixel, dan optimasi agar ROAS kamu maksimal.</p>
+        <div class="service-tags">
+          <span class="service-tag">Meta Ads</span>
+          <span class="service-tag">Google Ads</span>
+          <span class="service-tag">TikTok Ads</span>
+          <span class="service-tag">Pixel Setup</span>
+        </div>
+        <button class="service-btn">Selengkapnya ↗</button>
+      </div>
+      <div class="service-card" onclick="showServiceDetail('campaign')">
+        <div class="service-num">04 / 04</div>
+        <div class="service-icon-wrap">🚀</div>
+        <div class="service-name">Campaign<br>Running</div>
+        <p class="service-desc">Dari perencanaan hingga eksekusi campaign penuh — launching produk, Harbolnas, seasonal promo. Kami orkestrasi semua channel untuk hasil yang maksimal.</p>
+        <div class="service-tags">
+          <span class="service-tag">Product Launch</span>
+          <span class="service-tag">Harbolnas</span>
+          <span class="service-tag">KOL/Influencer</span>
+          <span class="service-tag">Multi-channel</span>
+        </div>
+        <button class="service-btn">Selengkapnya ↗</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="reveal">
+      <span class="section-tag">// cara kerja kami</span>
+      <h2 class="section-title">PROSES<br>KAMI</h2>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-title">Konsultasi & Audit</div>
+        <p class="step-text">Kita ngobrol dulu. Pahami bisnis, target market, kompetitor, dan kondisi digital kamu saat ini. Gratis, tanpa commitment.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-title">Strategi & Proposal</div>
+        <p class="step-text">Tim kami menyusun roadmap dan strategi yang custom untuk bisnismu — bukan template copy-paste.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-title">Eksekusi</div>
+        <p class="step-text">Action time. Content dibuat, ads dijalankan, brand dibangun — semua sesuai timeline yang sudah disepakati.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-title">Report & Optimasi</div>
+        <p class="step-text">Laporan bulanan yang transparan. Kami analisa, evaluasi, dan terus optimasi agar hasil semakin baik setiap bulannya.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="reveal">
+      <span class="section-tag">// kata klien kami</span>
+      <h2 class="section-title">MEREKA<br>SUDAH BUKTIKAN</h2>
+    </div>
+    <div class="testi-track reveal">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Dalam 2 bulan kerja bareng Panca Agency, omzet olshop gue naik hampir 3x lipat. Ads yang mereka setup beneran convert, bukan cuma nambah impression doang."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RH</div>
+          <div>
+            <div class="testi-name">Rizky Hidayat</div>
+            <div class="testi-role">Owner, Sneaker Culture ID</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Brand kita yang tadinya ga ada yang kenal, sekarang udah jadi salah satu yang paling dicari di niche makanan sehat. Terima kasih Panca atas strategi branding yang luar biasa."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SA</div>
+          <div>
+            <div class="testi-name">Sinta Amelia</div>
+            <div class="testi-role">Founder, Wholesome Bites</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Campaign Harbolnas yang dijalankan Panca Agency beneran gila. Revenue kami dalam 3 hari melebihi target bulanan. Team mereka responsif dan profesional banget."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DK</div>
+          <div>
+            <div class="testi-name">Dika Kurniawan</div>
+            <div class="testi-role">CEO, TechGear Indonesia</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Sudah 8 bulan pakai jasa Social Media Management Panca. Followers tumbuh organik, engagement tinggi, dan yang penting — DM order makin rame. Worth it banget."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">PW</div>
+          <div>
+            <div class="testi-name">Putri Wulandari</div>
+            <div class="testi-role">Owner, Batik Nusantara</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"ROAS kami dari Meta Ads naik dari 1.8x jadi 7.4x setelah Panca setup ulang campaign kami. Mereka benar-benar tahu cara kerja algoritma dan perilaku konsumen."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AF</div>
+          <div>
+            <div class="testi-name">Ahmad Fauzi</div>
+            <div class="testi-role">Marketing Manager, SkinCare+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="font-size:2rem">PANCA<span style="color:var(--orange)">.</span></div>
+        <p>Digital marketing & creative agency yang fokus pada hasil nyata. Kami bukan cuma vendor — kami partner pertumbuhan bisnis kamu.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/panca.creative" class="social-btn" target="_blank" title="Instagram">
+            <iconify-icon icon="mdi:instagram" width="28"></iconify-icon>
+          </a>
+          <a href="https://wa.me/6289601176069" class="social-btn" target="_blank" title="WhatsApp">
+            <iconify-icon icon="ic:baseline-whatsapp" width="28"></iconify-icon>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <a href="#" onclick="showServiceDetail('sosmed')">Social Media Management</a>
+        <a href="#" onclick="showServiceDetail('brand')">Brand & Olshop Management</a>
+        <a href="#" onclick="showServiceDetail('ads')">Ads Setup</a>
+        <a href="#" onclick="showServiceDetail('campaign')">Campaign Running</a>
+      </div>
+      <div class="footer-col">
+        <h4>Perusahaan</h4>
+        <a href="#" onclick="scrollToSection('portfolio')">Portfolio</a>
+        <a href="#" onclick="scrollToSection('process')">Proses Kami</a>
+        <a href="#" onclick="scrollToSection('testimonials')">Testimoni</a>
+        <a href="#" onclick="showPage('contact')">Kontak</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <a href="mailto:pancaagency.creative@gmail.com">
+          <iconify-icon icon="ic:outline-email" width="20"></iconify-icon>
+          pancaagency.creative@gmail.com
+        </a>
+        <a href="https://wa.me/6289601176069">
+          <iconify-icon icon="proicons:chat" width="20"></iconify-icon>
+          +62 896-0117-6069
+        </a>
+        <a href="#" onclick="goToOffice()">
+          <iconify-icon icon="boxicons:location" width="20"></iconify-icon>
+          Depok, Indonesia
+        </a>
+        <br><a href="https://wa.me/6289601176069" onclick="showPage('contact')"><b>Konsultasi Gratis</b></a>
+      </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 <span>Panca Agency</span>. All rights reserved.</div>
+      <div class="footer-copy">Made with ❤️ in Indonesia</div>
+    </div>
+  </footer>
+
+</div>
+<!-- ===================== END HOME PAGE ===================== -->
+
+
+<!-- ===================== SERVICE DETAIL PAGE ===================== -->
+<div id="page-service" class="page">
+  <div id="service-detail">
+    <div class="detail-hero">
+      <div class="detail-hero-bg"></div>
+      <button class="detail-back" id="btn-back">← Kembali ke Home</button>
+      <span class="detail-tag" id="detail-tag">// layanan</span>
+      <h1 class="detail-title" id="detail-title">Service Name</h1>
+      <p class="detail-desc" id="detail-desc">Description</p>
+      <button class="btn-primary" onclick="showPage('contact')">Mulai Pakai Layanan Ini</button>
+    </div>
+    <div class="detail-body">
+      <div class="detail-features" id="detail-features"></div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;margin-bottom:2rem;letter-spacing:0.04em">PAKET LAYANAN</h3>
+      <div class="detail-pricing" id="detail-pricing"></div>
+      <div class="urgency-cta-block" style="margin-top:2rem">
+        <div>
+          <div class="urgency-cta-title">SIAP MULAI?</div>
+          <div class="urgency-cta-sub">Konsultasi gratis, tanpa komitmen. Kita diskusi dulu.</div>
+        </div>
+        <button class="btn-dark" onclick="showPage('contact')">Hubungi Kami →</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ===================== END SERVICE DETAIL PAGE ===================== -->
+
+
+<!-- ===================== CONTACT PAGE ===================== -->
+<div id="page-contact" class="page">
+  <div id="contact-page">
+    <div class="contact-hero">
+      <button class="detail-back" onclick="showPage('home')">← Kembali ke Home</button>
+      <br><span class="section-tag">// hubungi kami</span>
+      <h1 class="section-title" style="font-size:clamp(3rem,7vw,6rem)">LET'S WORK<br><span style="color:var(--orange)">TOGETHER.</span></h1>
+      <p class="section-sub">Ceritakan bisnismu, kami siap dengerin dan kasih insight gratis. Tidak perlu basa-basi, langsung ngobrol.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Pilih Cara Kamu Menghubungi</h3>
+        <p>Kami fast-response di semua channel. Rata-rata balas dalam 15 menit di jam kerja. <br>Di luar jam kerja? WhatsApp kami tetap aktif.</p>
+        <div class="contact-channels">
+          <a href="https://wa.me/6289601176069" class="contact-channel" target="_blank">
+            <span class="channel-icon">
+              <iconify-icon icon="logos:whatsapp-icon" width="28"></iconify-icon>
+            </span>
+            <div>
+              <div class="channel-label">WhatsApp (Paling Cepat)</div>
+              <div class="channel-value">+62 896-0117-6069</div>
+            </div>
+          </a>
+          <a href="mailto:pancaagency.creative@gmail.com" class="contact-channel">
+            <span class="channel-icon">
+              <iconify-icon icon="streamline-cyber-color:email-2" width="28"></iconify-icon>
+            </span>
+            <div>
+              <div class="channel-label">Email</div>
+              <div class="channel-value">pancaagency.creative@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://instagram.com/panca.creative" class="contact-channel" target="_blank">
+            <span class="channel-icon">
+              <iconify-icon icon="skill-icons:instagram" width="28"></iconify-icon>
+            </span>
+            <div>
+              <div class="channel-label">Instagram DM</div>
+              <div class="channel-value">@panca.creative</div>
+            </div>
+          </a>
+          
+        </div>
+
+        <div style="margin-top:2rem;padding:1.5rem;background:rgba(255,69,0,0.08);border:1px solid var(--border)">
+          <div style="font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--orange);letter-spacing:0.1em;margin-bottom:0.8rem">// JAM OPERASIONAL</div>
+          <div style="font-size:0.85rem;color:rgba(245,240,235,0.7);line-height:2">
+            Senin – Jumat: 09.00 – 18.00 WIB<br>
+            Sabtu: 09.00 – 14.00 WIB<br>
+            Minggu: <span style="color:var(--orange)">Libur</span> (tapi WA tetap dipantau)
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <div id="form-content">
+          <div class="form-title">KIRIM PESAN</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nama Lengkap *</label>
+              <input type="text" id="f-name" placeholder="Nama kamu"/>
+            </div>
+            <div class="form-group">
+              <label>Nomor WhatsApp *</label>
+              <input type="text" id="f-wa" placeholder="+62 812..."/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="f-email" placeholder="email@kamu.com"/>
+          </div>
+          <div class="form-group">
+            <label>Nama Bisnis / Brand</label>
+            <input type="text" id="f-brand" placeholder="Nama brand kamu"/>
+          </div>
+          <div class="form-group">
+            <label>Layanan yang Dibutuhkan</label>
+            <select id="f-service">
+              <option value="">-- Pilih Layanan --</option>
+              <option>Social Media Management</option>
+              <option>Brand & Olshop Management</option>
+              <option>Ads Setup</option>
+              <option>Campaign Running</option>
+              <option>Paket Kombinasi</option>
+              <option>Konsultasi Dulu</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Budget Bulanan (Opsional)</label>
+            <select id="f-budget">
+              <option value="">-- Pilih Range Budget --</option>
+              <option>Di bawah Rp 2 juta</option>
+              <option>Rp 2 – 5 juta</option>
+              <option>Rp 5 – 10 juta</option>
+              <option>Rp 10 – 20 juta</option>
+              <option>Di atas Rp 20 juta</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Ceritakan Kebutuhan Kamu</label>
+            <textarea id="f-msg" placeholder="Ceritakan bisnis kamu, tantangan yang dihadapi, atau apa yang ingin kamu capai..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Kirim Pesan Sekarang</button>
+        </div>
+          <div class="form-success" id="form-success">
+          <div class="success-icon">🎉</div>
+          <div class="success-title">PESAN TERKIRIM!</div>
+          <p class="success-text">Tim kami akan menghubungi kamu dalam waktu <strong style="color:var(--orange)">15 menit</strong> di jam kerja.<br><br>Atau langsung WA kami di <strong style="color:var(--orange)">+62 896-0117-6069</strong> untuk respon lebih cepat!</p>
+          <p style="margin-top:1rem; color: gray; font-size: 0.9rem;">Pesan ini akan ditutup dalam <span id="countdown-number">3</span> detik</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-office" id="office">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.04em;margin-bottom:1.5rem">KANTOR KAMI</h3>
+      <div class="office-card">
+        <div class="office-map-placeholder">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d247.82887810282918!2d106.81965776859785!3d-6.360119494341055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjEnMzYuMCJTIDEwNsKwNDknMTEuMSJF!5e0!3m2!1sen!2sid!4v1779545488980!5m2!1sen!2sid"
+          width="600"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div class="office-info">
+          <div class="office-title">Panca Agency HQ</div>
+          <div class="office-detail"><strong>Alamat</strong>: Jl. H. Amat No.17, Kukusan, Kecamatan Beji, Kota Depok, Jawa Barat 16425</div>
+          <div class="office-detail"><strong>Telpon</strong>: +62 896-0117-6069</div>
+          <div class="office-detail"><strong>Email</strong>: pancaagency.creative@gmail.com</div>
+          <div class="office-detail"><strong>Meeting</strong>: Bisa online (Zoom/GMeet) atau tatap muka sesuai janji</div>
+          <button class="btn-primary" style="margin-top:1.5rem" onclick="showPage('contact')">Book Meeting →</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 <span>Panca Agency</span>. All rights reserved.</div>
+        <div class="footer-copy">Made with ❤️ in Indonesia</div>
+      </div>
+    </footer>
+  </div>
+</div>
+<!-- ===================== END CONTACT PAGE ===================== -->
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/6289601176069" class="wa-fab" target="_blank" title="Chat WhatsApp">
+  <span class="wa-tooltip">Chat dengan kami!</span>
+  
+  <iconify-icon icon="logos:whatsapp-icon"></iconify-icon>
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>
