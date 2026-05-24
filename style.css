@@ -1108,6 +1108,12 @@
     transform: translateY(0);
   }
 
+  .footer-col a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   /* floating WhatsApp */
   .wa-fab {
     position: fixed;
