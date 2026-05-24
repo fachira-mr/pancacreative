@@ -82,19 +82,6 @@ function observeReveal() {
 }
 observeReveal();
 
-/* ===== PORTFOLIO FILTER ===== */
-function filterPortfolio(btn, cat) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.portfolio-item').forEach(item => {
-    const cats = (item.getAttribute('data-cat') || '').split(',');
-    const show = cat === 'all' || cats.includes(cat);
-    item.style.opacity = show ? '1' : '0.25';
-    item.style.transform = show ? 'scale(1)' : 'scale(0.97)';
-    item.style.transition = 'opacity 0.3s, transform 0.3s';
-  });
-}
-
 /* ===== SERVICE DETAIL ===== */
 const serviceData = {
   sosmed: {
