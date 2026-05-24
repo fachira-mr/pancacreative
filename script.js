@@ -187,21 +187,6 @@ function showServiceDetail(serviceKey) {
     </div>
   `).join('');
 
-  // Pricing
-  const priceEl = document.getElementById('detail-pricing');
-  priceEl.innerHTML = data.pricing.map(p => `
-    <div class="price-tier ${p.featured ? 'featured' : ''}">
-      ${p.featured ? '<div class="price-badge">Most Popular</div>' : ''}
-      <div class="price-name">${p.name}</div>
-      <ul class="price-features">
-        ${p.features.map(f => `<li>${f}</li>`).join('')}
-      </ul>
-      <button class="btn-primary" style="margin-top:1.5rem;width:100%;text-align:center" onclick="showPage('contact')">
-        ${p.price === 'Custom' ? 'Hubungi Kami' : 'Pilih Paket Ini'}
-      </button>
-    </div>
-  `).join('');
-
   showPage('service');
 
   // ← tambah di sini, paling bawah
@@ -215,70 +200,83 @@ function showServiceDetail(serviceKey) {
   }); 
 }
 
-/* ===== FORM SUBMIT ===== */
-async function submitForm() {
-
-  const name = document.getElementById('f-name').value.trim();
-  const wa = document.getElementById('f-wa').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  const brand = document.getElementById('f-brand').value.trim();
-  const service = document.getElementById('f-service').value.trim();
-  const budget = document.getElementById('f-budget').value.trim();
-  const msg = document.getElementById('f-msg').value.trim();
-
-  if (!name || !wa) {  // sesuaikan field mana yg wajib
-    alert('Mohon isi Nama dan WhatsApp ya!');
-    return;
+  // toggle menu
+  function toggleMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
   }
 
-  const btn = document.querySelector('.form-submit');
-  btn.disabled = true;
-  btn.textContent = 'Mengirim...';
-
-  try {
-    await fetch("https://script.google.com/macros/s/AKfycbz__Kzu_wq0amYAJgdLTIiPTTNxNiMCTiWBfqLhuJ2wDIRGAx_Mwt5fwNWVKhzwZNOk/exec", {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8",
-      },
-      body: JSON.stringify({ name, wa, email, brand, service, budget, msg })
-    });
-
-    // Tampilkan success
-    document.getElementById('form-content').style.display = 'none';
-    document.getElementById('form-success').classList.add('show');
-
-    // Countdown 3 detik lalu balik ke form
-    let count = 5;
-    const countdownEl = document.getElementById('countdown-number');
-    countdownEl.textContent = count;
-
-    const interval = setInterval(() => {
-        count--;
-        countdownEl.textContent = count;
-        if (count === 0) {
-            clearInterval(interval);
-            // Reset form
-            document.getElementById('f-name').value = '';
-            document.getElementById('f-wa').value = '';
-            document.getElementById('f-email').value = '';
-            document.getElementById('f-brand').value = '';
-            document.getElementById('f-service').value = '';
-            document.getElementById('f-budget').value = '';
-            document.getElementById('f-msg').value = '';
-            btn.disabled = false;
-            btn.textContent = 'Kirim Pesan Sekarang';
-            // Balik ke form
-            document.getElementById('form-success').classList.remove('show');
-            document.getElementById('form-content').style.display = '';
-        }
-    }, 1000);
-
-  } catch (err) {
-    console.error("Gagal kirim:", err);
-    alert('Gagal mengirim pesan. Coba lagi ya, atau hubungi kami langsung via WhatsApp!');
-    btn.disabled = false;
-    btn.textContent = 'Kirim Pesan Sekarang';
+  function closeMenu() {
+    document.getElementById('hamburger').classList.remove('open');
+    document.querySelector('.nav-links').classList.remove('open');
   }
-}
+
+  /* ===== FORM SUBMIT ===== */
+  async function submitForm() {
+
+    const name = document.getElementById('f-name').value.trim();
+    const wa = document.getElementById('f-wa').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const brand = document.getElementById('f-brand').value.trim();
+    const service = document.getElementById('f-service').value.trim();
+    const budget = document.getElementById('f-budget').value.trim();
+    const msg = document.getElementById('f-msg').value.trim();
+
+    if (!name || !wa) {  // sesuaikan field mana yg wajib
+      alert('Mohon isi Nama dan WhatsApp ya!');
+      return;
+    }
+
+    const btn = document.querySelector('.form-submit');
+    btn.disabled = true;
+    btn.textContent = 'Mengirim...';
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbz__Kzu_wq0amYAJgdLTIiPTTNxNiMCTiWBfqLhuJ2wDIRGAx_Mwt5fwNWVKhzwZNOk/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify({ name, wa, email, brand, service, budget, msg })
+      });
+
+      // Tampilkan success
+      document.getElementById('form-content').style.display = 'none';
+      document.getElementById('form-success').classList.add('show');
+
+      // Countdown 3 detik lalu balik ke form
+      let count = 5;
+      const countdownEl = document.getElementById('countdown-number');
+      countdownEl.textContent = count;
+
+      const interval = setInterval(() => {
+          count--;
+          countdownEl.textContent = count;
+          if (count === 0) {
+              clearInterval(interval);
+              // Reset form
+              document.getElementById('f-name').value = '';
+              document.getElementById('f-wa').value = '';
+              document.getElementById('f-email').value = '';
+              document.getElementById('f-brand').value = '';
+              document.getElementById('f-service').value = '';
+              document.getElementById('f-budget').value = '';
+              document.getElementById('f-msg').value = '';
+              btn.disabled = false;
+              btn.textContent = 'Kirim Pesan Sekarang';
+              // Balik ke form
+              document.getElementById('form-success').classList.remove('show');
+              document.getElementById('form-content').style.display = '';
+          }
+      }, 1000);
+
+    } catch (err) {
+      console.error("Gagal kirim:", err);
+      alert('Gagal mengirim pesan. Coba lagi ya, atau hubungi kami langsung via WhatsApp!');
+      btn.disabled = false;
+      btn.textContent = 'Kirim Pesan Sekarang';
+    }
+  }

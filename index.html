@@ -21,12 +21,17 @@
     <img src="images/logoPanca-removebg.png" alt="Panca Agency">
   </a>
   <div class="nav-links">
-    <a href="#" onclick="scrollToSection('portfolio')">Portfolio</a>
-    <a href="#" onclick="scrollToSection('services')">Layanan</a>
-    <a href="#" onclick="scrollToSection('process')">Proses</a>
-    <a href="#" onclick="showPage('contact')">Kontak</a>
-    <a href="#" class="nav-cta" onclick="showPage('contact')">Konsultasi Gratis</a>
+    <a href="#" onclick="closeMenu(); scrollToSection('portfolio')">Portfolio</a>
+    <a href="#" onclick="closeMenu(); scrollToSection('services')">Layanan</a>
+    <a href="#" onclick="closeMenu(); scrollToSection('process')">Proses</a>
+    <a href="#" onclick="closeMenu(); showPage('contact')">Kontak</a>
+    <a href="#" class="nav-cta" onclick="closeMenu(); showPage('contact')">Konsultasi Gratis</a>
   </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <!-- ===================== HOME PAGE ===================== -->
@@ -115,7 +120,6 @@
         <div class="portfolio-overlay">
           <div class="port-tag-small">Branding & Social Media</div>
           <div class="port-title">Kopi Nusantara</div>
-          <div class="port-desc">Rebranding total + management IG & TikTok — followers naik 420% dalam 3 bulan</div>
         </div>
       </div>
       <div class="portfolio-item" data-cat="ads">
@@ -124,7 +128,6 @@
         <div class="portfolio-overlay">
           <div class="port-tag-small">Meta Ads</div>
           <div class="port-title">Skincare Glow.id</div>
-          <div class="port-desc">ROAS 8.2x dengan budget Rp 5jt/bulan</div>
         </div>
       </div>
       <div class="portfolio-item" data-cat="sosmed">
@@ -133,7 +136,6 @@
         <div class="portfolio-overlay">
           <div class="port-tag-small">Social Media</div>
           <div class="port-title">FashionFwd Store</div>
-          <div class="port-desc">Engagement rate naik dari 0.8% ke 6.4%</div>
         </div>
       </div>
       <div class="portfolio-item" data-cat="campaign,ads">
@@ -142,7 +144,6 @@
         <div class="portfolio-overlay">
           <div class="port-tag-small">Campaign & Ads</div>
           <div class="port-title">TechGear Indonesia</div>
-          <div class="port-desc">Harbolnas campaign — revenue Rp 280jt dalam 3 hari</div>
         </div>
       </div>
       <div class="portfolio-item" data-cat="brand">
@@ -151,7 +152,6 @@
         <div class="portfolio-overlay">
           <div class="port-tag-small">Brand Identity</div>
           <div class="port-title">Dapur Mama</div>
-          <div class="port-desc">Dari UMKM biasa jadi brand kuliner premium siap franchise</div>
         </div>
       </div>
     </div>
@@ -162,32 +162,28 @@
     <div class="urgency-bg-text">WHY US</div>
     <div class="urgency-header reveal">
       <span class="section-tag">// kenapa panca?</span>
-      <h2 class="section-title">BISNIS KAMU<br>BUTUH INI<br><span style="color:var(--orange)">SEKARANG.</span></h2>
+      <h2 class="section-title">BISNIS KAMU BUTUH INI<br><span style="color:var(--orange)">SEKARANG.</span></h2>
       <p class="section-sub">Kompetitor kamu sudah digital. Setiap hari tanpa strategi yang tepat = peluang yang hilang.</p>
     </div>
     <div class="urgency-grid reveal">
       <div class="urgency-card">
         <span class="urgency-num">01</span>
-        <span class="urgency-icon">⚡</span>
-        <div class="urgency-title">Market Digital Tumbuh 40% Per Tahun</div>
+        <br><div class="urgency-title">Market Digital Tumbuh 40% Per Tahun</div>
         <p class="urgency-text">Pengguna internet Indonesia sudah 215 juta. Kalau bisnis kamu belum hadir optimal secara digital, kamu kehilangan potensi pasar yang luar biasa besar — dan kompetitor kamu sudah memakannya.</p>
       </div>
       <div class="urgency-card">
         <span class="urgency-num">02</span>
-        <span class="urgency-icon">🎯</span>
-        <div class="urgency-title">Iklan Tanpa Strategi = Uang Terbuang</div>
+        <br><div class="urgency-title">Iklan Tanpa Strategi = Uang Terbuang</div>
         <p class="urgency-text">Banyak bisnis sudah buang Rp 10–50 juta untuk ads tapi hasilnya nol. Kenapa? Karena tanpa setup yang benar, targeting yang tepat, dan copy yang convert — budget kamu hanya menguntungkan platform, bukan bisnismu.</p>
       </div>
       <div class="urgency-card">
         <span class="urgency-num">03</span>
-        <span class="urgency-icon">📈</span>
-        <div class="urgency-title">Brand Yang Kuat = Harga Premium</div>
+        <br><div class="urgency-title">Brand Yang Kuat = Harga Premium</div>
         <p class="urgency-text">Brand yang terkelola dengan baik bisa mematok harga 2–5x lebih tinggi dari kompetitor. Bukan soal produknya saja — tapi bagaimana kamu dipersepsikan di market. Visual, tone, dan konsistensi menentukan trust konsumen.</p>
       </div>
       <div class="urgency-card">
         <span class="urgency-num">04</span>
-        <span class="urgency-icon">🏆</span>
-        <div class="urgency-title">ROI Terukur & Transparan</div>
+        <br><div class="urgency-title">ROI Terukur & Transparan</div>
         <p class="urgency-text">Kami tidak cuma posting dan berharap. Setiap action punya KPI yang jelas: reach, engagement, conversion, ROAS. Kamu bisa tracking progress kapan saja dan tahu persis uang kamu bekerja ke mana.</p>
       </div>
     </div>
@@ -204,14 +200,14 @@
   <section id="services">
     <div class="reveal">
       <span class="section-tag">// layanan kami</span>
-      <h2 class="section-title">APA YANG<br>KAMI LAKUKAN</h2>
+      <h2 class="section-title">APA YANG KAMI LAKUKAN</h2>
       <p class="section-sub">Empat pilar layanan yang dirancang untuk mendorong pertumbuhan digital bisnis kamu dari semua sisi.</p>
     </div>
     <div class="services-grid reveal">
       <div class="service-card" onclick="showServiceDetail('sosmed')">
         <div class="service-num">01 / 04</div>
         <div class="service-icon-wrap">📱</div>
-        <div class="service-name">Social Media<br>Management</div>
+        <div class="service-name">Social Media Management</div>
         <p class="service-desc">Kelola semua platform sosial mediamu secara profesional. Dari konten harian, copywriting, desain grafis, hingga community management — kami handle semuanya.</p>
         <div class="service-tags">
           <span class="service-tag">Instagram</span>
@@ -224,7 +220,7 @@
       <div class="service-card" onclick="showServiceDetail('brand')">
         <div class="service-num">02 / 04</div>
         <div class="service-icon-wrap">🛍️</div>
-        <div class="service-name">Brand & Olshop<br>Management</div>
+        <div class="service-name">Brand & Olshop Management</div>
         <p class="service-desc">Bangun identitas brand yang kuat dan kelola toko online kamu agar tampil menarik, dipercaya, dan siap bersaing di marketplace manapun.</p>
         <div class="service-tags">
           <span class="service-tag">Branding</span>
@@ -250,7 +246,7 @@
       <div class="service-card" onclick="showServiceDetail('campaign')">
         <div class="service-num">04 / 04</div>
         <div class="service-icon-wrap">🚀</div>
-        <div class="service-name">Campaign<br>Running</div>
+        <div class="service-name">Campaign Running</div>
         <p class="service-desc">Dari perencanaan hingga eksekusi campaign penuh — launching produk, Harbolnas, seasonal promo. Kami orkestrasi semua channel untuk hasil yang maksimal.</p>
         <div class="service-tags">
           <span class="service-tag">Product Launch</span>
@@ -267,7 +263,7 @@
   <section id="process">
     <div class="reveal">
       <span class="section-tag">// cara kerja kami</span>
-      <h2 class="section-title">PROSES<br>KAMI</h2>
+      <h2 class="section-title">PROSES KAMI</h2>
     </div>
     <div class="process-steps reveal">
       <div class="process-step">
@@ -425,8 +421,7 @@
     </div>
     <div class="detail-body">
       <div class="detail-features" id="detail-features"></div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;margin-bottom:2rem;letter-spacing:0.04em">PAKET LAYANAN</h3>
-      <div class="detail-pricing" id="detail-pricing"></div>
+      
       <div class="urgency-cta-block" style="margin-top:2rem">
         <div>
           <div class="urgency-cta-title">SIAP MULAI?</div>
