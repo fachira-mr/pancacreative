@@ -214,69 +214,44 @@ function showServiceDetail(serviceKey) {
   }
 
   /* ===== FORM SUBMIT ===== */
-  async function submitForm() {
+  function submitForm() {
+    const name = document.getElementById('f-name').value;
+    const wa = document.getElementById('f-wa').value;
+    const email = document.getElementById('f-email').value;
+    const brand = document.getElementById('f-brand').value;
+    const service = document.getElementById('f-service').value;
+    const budget = document.getElementById('f-budget').value;
+    const msg = document.getElementById('f-msg').value;
 
-    const name = document.getElementById('f-name').value.trim();
-    const wa = document.getElementById('f-wa').value.trim();
-    const email = document.getElementById('f-email').value.trim();
-    const brand = document.getElementById('f-brand').value.trim();
-    const service = document.getElementById('f-service').value.trim();
-    const budget = document.getElementById('f-budget').value.trim();
-    const msg = document.getElementById('f-msg').value.trim();
-
-    if (!name || !wa) {  // sesuaikan field mana yg wajib
-      alert('Mohon isi Nama dan WhatsApp ya!');
+    if (!name || !wa) {
+      alert('Nama dan nomor WhatsApp wajib diisi!');
       return;
     }
 
-    const btn = document.querySelector('.form-submit');
-    btn.disabled = true;
-    btn.textContent = 'Mengirim...';
+    const text = `Halo Panca Agency! Saya ingin konsultasi.
 
-    try {
-      await fetch("https://script.google.com/macros/s/AKfycbz__Kzu_wq0amYAJgdLTIiPTTNxNiMCTiWBfqLhuJ2wDIRGAx_Mwt5fwNWVKhzwZNOk/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8",
-        },
-        body: JSON.stringify({ name, wa, email, brand, service, budget, msg })
-      });
+  *Nama:* ${name}
+  *WhatsApp:* ${wa}
+  *Email:* ${email || '-'}
+  *Brand:* ${brand || '-'}
+  *Layanan:* ${service || '-'}
+  *Budget:* ${budget || '-'}
+  *Pesan:* ${msg || '-'}`;
 
-      // Tampilkan success
-      document.getElementById('form-content').style.display = 'none';
-      document.getElementById('form-success').classList.add('show');
+    // Tampilkan success screen
+    document.getElementById('form-content').style.display = 'none';
+    document.getElementById('form-success').classList.add('show');
 
-      // Countdown 3 detik lalu balik ke form
-      let count = 5;
-      const countdownEl = document.getElementById('countdown-number');
-      countdownEl.textContent = count;
-
-      const interval = setInterval(() => {
-          count--;
-          countdownEl.textContent = count;
-          if (count === 0) {
-              clearInterval(interval);
-              // Reset form
-              document.getElementById('f-name').value = '';
-              document.getElementById('f-wa').value = '';
-              document.getElementById('f-email').value = '';
-              document.getElementById('f-brand').value = '';
-              document.getElementById('f-service').value = '';
-              document.getElementById('f-budget').value = '';
-              document.getElementById('f-msg').value = '';
-              btn.disabled = false;
-              btn.textContent = 'Kirim Pesan Sekarang';
-              // Balik ke form
-              document.getElementById('form-success').classList.remove('show');
-              document.getElementById('form-content').style.display = '';
-          }
-      }, 1000);
-
-    } catch (err) {
-      console.error("Gagal kirim:", err);
-      alert('Gagal mengirim pesan. Coba lagi ya, atau hubungi kami langsung via WhatsApp!');
-      btn.disabled = false;
-      btn.textContent = 'Kirim Pesan Sekarang';
-    }
+    // Countdown lalu buka WA
+    let count = 3;
+    const interval = setInterval(() => {
+      count--;
+      document.getElementById('countdown-number').textContent = count;
+      if (count === 0) {
+        clearInterval(interval);
+        window.open(`https://wa.me/6289601176069?text=${encodeURIComponent(text)}`, '_blank');
+        document.getElementById('form-success').classList.remove('show');
+        document.getElementById('form-content').style.display = 'block';
+      }
+    }, 1000);
   }
