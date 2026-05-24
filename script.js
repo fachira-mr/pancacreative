@@ -239,6 +239,15 @@ function showServiceDetail(serviceKey) {
         window.open(`https://wa.me/6289601176069?text=${encodeURIComponent(text)}`, '_blank');
         document.getElementById('form-success').classList.remove('show');
         document.getElementById('form-content').style.display = 'block';
+        
+        // ← tambah ini
+        document.getElementById('f-name').value = '';
+        document.getElementById('f-wa').value = '';
+        document.getElementById('f-email').value = '';
+        document.getElementById('f-brand').value = '';
+        document.getElementById('f-service').value = '';
+        document.getElementById('f-budget').value = '';
+        document.getElementById('f-msg').value = '';
       }
     }, 1000);
   }
