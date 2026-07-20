@@ -2,17 +2,19 @@
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
 let cx = 0, cy = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => {
-  cx = e.clientX; cy = e.clientY;
-  cursor.style.transform = `translate(${cx - 6}px, ${cy - 6}px)`;
-});
-function animateRing() {
-  rx += (cx - rx) * 0.12;
-  ry += (cy - ry) * 0.12;
-  ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
-  requestAnimationFrame(animateRing);
+if (cursor && ring) {
+  document.addEventListener('mousemove', e => {
+    cx = e.clientX; cy = e.clientY;
+    cursor.style.transform = `translate(${cx - 6}px, ${cy - 6}px)`;
+  });
+  function animateRing() {
+    rx += (cx - rx) * 0.12;
+    ry += (cy - ry) * 0.12;
+    ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
 }
-animateRing();
 
 /* ===== NAV SCROLL ===== */
 window.addEventListener('scroll', () => {
@@ -81,6 +83,146 @@ function observeReveal() {
   document.querySelectorAll('.reveal').forEach(el => { el.classList.remove('visible'); obs.observe(el); });
 }
 observeReveal();
+
+/* ===== PORTFOLIO ===== */
+/*
+  GANTI DI SINI AJA kalau mau update foto portfolio.
+  - "images" = daftar path foto brand ini. 4 foto pertama otomatis jadi preview
+    di kartu utama, semuanya muncul pas diklik (lightbox).
+  - Taruh file fotonya di folder images/<nama-brand>/ lalu sesuaikan
+    path-nya, atau ganti path ke lokasi lain sesuai struktur foldermu.
+  - Minimal 4 foto per brand biar preview 2x2 penuh. Kalau kurang dari 4,
+    slot yang kosong otomatis nampilin fallback warna brand.
+  - "span2: true" bikin kartu itu lebih besar (2 kolom) di grid utama,
+    kayak layout bento yang sekarang.
+*/
+const portfolioData = {
+  algaestore: {
+    name: 'Algaestore',
+    ig: 'https://instagram.com/algaestore_id',
+    cat: 'brand,sosmed',
+    bgClass: 'bg-1',
+    icon: '🛍️',
+    span2: true,
+    images: [
+      'images/algaestore/algaestore1.png',
+      'images/algaestore/algaestore2.png',
+      'images/algaestore/algaestore3.png',
+      'images/algaestore/algaestore4.png',
+      'images/algaestore/algaestore5.png',
+      'images/algaestore/algaestore6.png',
+    ]
+  },
+  exora: {
+    name: 'Exora',
+    ig: 'https://instagram.com/exora_globaltrade',
+    cat: 'ads',
+    bgClass: 'bg-2',
+    icon: '📱',
+    span2: false,
+    images: [
+      'images/exora/exora1.png',
+      'images/exora/exora2.png',
+      'images/exora/exora3.png',
+      'images/exora/exora4.png',
+      'images/exora/exora5.png',
+      'images/exora/exora6.png',
+    ]
+  },
+  ploso: {
+    name: 'Ploso Store',
+    ig: 'https://instagram.com/ploso_store',
+    cat: 'sosmed',
+    bgClass: 'bg-3',
+    icon: '✨',
+    span2: false,
+    images: [
+      'images/ploso/ploso1.png',
+      'images/ploso/ploso2.png',
+      'images/ploso/ploso3.png',
+      'images/ploso/ploso4.png',
+      'images/ploso/ploso5.png',
+      'images/ploso/ploso6.png',
+    ]
+  },
+  strategist: {
+    name: 'The Strategist Global Advisory',
+    ig: 'https://instagram.com/thestrategist.adv',
+    cat: 'campaign,ads',
+    bgClass: 'bg-4',
+    icon: '🚀',
+    span2: true,
+    images: [
+      'images/ploso/ploso1.png',
+      'images/ploso/ploso2.png',
+      'images/ploso/ploso3.png',
+      'images/ploso/ploso4.png',
+      'images/ploso/ploso5.png',
+      'images/ploso/ploso6.png',
+    ]
+  }
+};
+
+function renderPortfolioGrid() {
+  const grid = document.getElementById('portfolio-grid');
+  if (!grid) return;
+
+  grid.innerHTML = Object.keys(portfolioData).map(key => {
+    const d = portfolioData[key];
+    const previewSlots = 4;
+    const thumbs = Array.from({ length: previewSlots }).map((_, i) => {
+      const src = d.images[i];
+      if (!src) {
+        return `<div class="thumb ${d.bgClass}"><div class="thumb-fallback" style="display:flex;">${d.icon}</div></div>`;
+      }
+      return `
+        <div class="thumb ${d.bgClass}">
+          <img src="${src}" alt="${d.name} - hasil karya ${i + 1}" loading="lazy"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="thumb-fallback">${d.icon}</div>
+        </div>`;
+    }).join('');
+
+    return `
+      <div class="portfolio-item${d.span2 ? ' span-2' : ''}" data-cat="${d.cat}" onclick="openPortfolioLightbox('${key}')">
+        <div class="portfolio-preview">${thumbs}</div>
+        <div class="portfolio-badge">${d.name}</div>
+        <div class="portfolio-overlay">
+          <div class="port-title">${d.name}</div>
+          <div class="port-view">Lihat semua karya →</div>
+        </div>
+      </div>`;
+  }).join('');
+}
+renderPortfolioGrid();
+
+function openPortfolioLightbox(key) {
+  const d = portfolioData[key];
+  if (!d) return;
+
+  document.getElementById('pl-title').textContent = d.name;
+  document.getElementById('pl-ig-link').href = d.ig;
+
+  document.getElementById('pl-grid').innerHTML = d.images.map((src, i) => `
+    <div class="pl-thumb ${d.bgClass}">
+      <img src="${src}" alt="${d.name} - karya ${i + 1}" loading="lazy"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="thumb-fallback">${d.icon}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('portfolio-lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePortfolioLightbox() {
+  document.getElementById('portfolio-lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closePortfolioLightbox();
+});
 
 /* ===== SERVICE DETAIL ===== */
 const serviceData = {
