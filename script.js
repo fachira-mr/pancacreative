@@ -1,4 +1,4 @@
-/* ===== CURSOR ===== */
+/* ===== CURSOR ===== */ 
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
 let cx = 0, cy = 0, rx = 0, ry = 0;
